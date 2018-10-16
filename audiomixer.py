@@ -4,7 +4,7 @@ devices = sounddevice.query_devices()
 
 for device in devices:
     if device["name"].startswith("MixVibes U-MIX44"):
-        break 
+        break
 
 print(device)
 """Pass input directly to output.
@@ -54,8 +54,6 @@ class Channel:
 
 # Channel.init()
 masterChannel = Channel()
-masterChannel.set(0, 2)
-masterChannel.set(1, 3)
 
 
 import sounddevice as sd
@@ -79,6 +77,8 @@ with sd.Stream(device=(input_device, output_device),
         if c == "1":
             masterChannel.set(0, 0)
             masterChannel.set(1, 1)
+            masterChannel.set(2, 0)
+            masterChannel.set(3, 1)
             #masterChannel.save()
         elif c == "2":
             masterChannel.set(0, 2)
